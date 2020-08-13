@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import java.beans.PropertyVetoException;
 import java.io.InputStream;
+import java.sql.SQLOutput;
 import java.util.List;
 
 /**
@@ -20,13 +21,15 @@ public class IPersistentTest {
 
 
     @Test
-    public void test() throws PropertyVetoException, DocumentException {
+    public void test() throws Exception {
         InputStream in = Resources.getResourceAsSteam("sqlMapConfig.xml");
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
         SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.builder(in);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        List<User> list = sqlSession.selectList("user.selectList");
-
-
+        User user = new User();
+        user.setId(1);
+        user.setName("张三");
+        List<User> list = sqlSession.selectList("user.selectList",user);
+        list.forEach(System.out::println);
     }
 }

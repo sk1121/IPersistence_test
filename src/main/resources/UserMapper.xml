@@ -1,4 +1,4 @@
-<mapper namespace="user">
+<mapper namespace="com.ai.dao.UserMapper">
 
     <select id="selectList" parameterType="com.ai.pojo.User" resultType="com.ai.pojo.User">
         select * from user

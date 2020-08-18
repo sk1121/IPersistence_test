@@ -6,12 +6,10 @@ import com.ai.pojo.User;
 import com.ai.sqlsession.SqlSession;
 import com.ai.sqlsession.SqlSessionFactory;
 import com.ai.sqlsession.SqlSessionFactoryBuilder;
-import org.dom4j.DocumentException;
 import org.junit.Test;
+import org.omg.CORBA.ARG_OUT;
 
-import java.beans.PropertyVetoException;
 import java.io.InputStream;
-import java.sql.SQLOutput;
 import java.util.List;
 
 /**
@@ -27,15 +25,14 @@ public class IPersistentTest {
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
         SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.builder(in);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        /*User user = new User();
-        user.setId(1);
-        user.setName("asd");
-        List<User> list = sqlSession.selectList("user.selectList",user);
-        User u2 = sqlSession.selectOne("user.selectOne",user);
-        list.forEach(System.out::println);
-        System.out.println(u2);*/
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         List<User> users = userMapper.selectList();
         users.forEach(System.out::println);
+        System.out.println("=================");
+        User user = new User();
+        user.setId(1);
+        user.setName("asd");
+        User u2 = userMapper.selectOne(user);
+        System.out.println(u2);
     }
 }

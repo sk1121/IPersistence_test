@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.dao.OrderMapper">
+
+    <resultMap id="selectOrderMap" type="com.ai.pojo.Order">
+        <result property="id" column="id"/>
+        <result property="orderName" column="orderName"/>
+        <result property="uid" column="uid"/>
+        <association property="user" javaType="com.ai.pojo.User">
+            <!--这里的userId用的是下面的sql的别名-->
+            <result property="id" column="userId"/>
+            <result property="name" column="name"/>
+            <result property="age" column="age"/>
+            <result property="sex" column="sex"/>
+        </association>
+    </resultMap>
+    <!--注意，返回的字段可以重复-->
+    <select id="selectOrder" parameterType="com.ai.pojo.Order" resultMap="selectOrderMap">
+        select o.*,u.*,u.id userId from `order` o,`user` u where o.uid = u.id
+    </select>
+
+
+</mapper>

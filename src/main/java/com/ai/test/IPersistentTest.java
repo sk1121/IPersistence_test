@@ -7,7 +7,6 @@ import com.ai.sqlsession.SqlSession;
 import com.ai.sqlsession.SqlSessionFactory;
 import com.ai.sqlsession.SqlSessionFactoryBuilder;
 import org.junit.Test;
-import org.omg.CORBA.ARG_OUT;
 
 import java.io.InputStream;
 import java.util.List;

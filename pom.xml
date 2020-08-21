@@ -9,10 +9,26 @@
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
+        <!--自己写的-->
         <dependency>
             <groupId>com.ai</groupId>
             <artifactId>IPersistence</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+        <!--mybatis-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.4.5</version>
+        </dependency>
+        <!--mysql-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

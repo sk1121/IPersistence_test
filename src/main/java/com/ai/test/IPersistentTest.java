@@ -30,7 +30,7 @@ public class IPersistentTest {
         System.out.println("=================");
         User user = new User();
         user.setId(1);
-        user.setName("asd");
+        user.setName("asd1");
         User u2 = userMapper.selectOne(user);
         System.out.println(u2);
     }
